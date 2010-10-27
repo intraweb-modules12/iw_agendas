@@ -714,7 +714,8 @@ function iw_agendas_user_menu($args)
 	$subsArray = array();
 	foreach ($subs as $sub) {
 		array_push($subsArray,$sub['daid']);
-	}	//get all the agendas where the user can access  
+	}
+	//get all the agendas where the user can access  
 	$agendas = pnModFunc('iw_agendas', 'user', 'getUserAgendas');
 	$pnRender->assign('color', $agendas[$daid]['color']);
 	$i = 0;
@@ -1746,7 +1747,8 @@ function iw_agendas_user_esborra($args)
 											  'daid' => $daid)));
 		}
 	}
-	//Si ha arribat fins aquÃ­ podrÃ  esborrar el registre de l'agenda	//Demanem confirmació per l'esborrament del registre, si no s'ha demanat abans
+	//Si ha arribat fins aquÃ­ podrÃ  esborrar el registre de l'agenda
+	//Demanem confirmació per l'esborrament del registre, si no s'ha demanat abans
 	if (empty($confirmation)) {
 		// Check for repetitions
 		$repes = pnModAPIFunc('iw_agendas', 'user', 'comptarepes',
@@ -2496,7 +2498,8 @@ function iw_agendas_user_info($args)
  * @author:     Albert Pérez Monfort (aperezm@xtec.cat) i Toni Ginard Lladó (aginard@xtec.cat)
  * @param	Information about the note
  * @return	return true if success and false otherwise
- */function iw_agendas_user_modifica($args)
+ */
+function iw_agendas_user_modifica($args)
 {
 	$dom = ZLanguage::getModuleDomain('iw_agendas');
 	$aid = FormUtil::getPassedValue('aid', isset($args['aid']) ? $args['aid'] : null, 'POST');
@@ -2889,7 +2892,7 @@ function iw_agendas_user_meva($args)
 		}
 		if ($adaid == $registreagenda['daid']) {$nom_agenda = $registreagenda['nom_agenda'];}
 	}
-	if (count($agendas) > 1 && !isset($adaid) && $nova == 0 && $daid != 0) {
+	if (count($agendas) >= 1 && !isset($adaid) && $nova == 0 && $daid != 0) {
 		// Create output object
 		$pnRender = pnRender::getInstance('iw_agendas',false);
 		// Create and pass the menu
@@ -3285,7 +3288,8 @@ function iw_agendas_user_subscriuauto($args)
 								array('mes' => $mes,
 									  'any' => $any,
 									  'dia' => $dia,
-									  'daid' => $daid)));}
+									  'daid' => $daid)));
+}
 
 /**
  * get the user notes from Google calendar (Gdata Zend functions are necessary)
