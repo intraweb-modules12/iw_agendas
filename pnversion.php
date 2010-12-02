@@ -21,6 +21,6 @@ $modversion['contact'] = 'aginard @xtec.cat i aperezm@xtec.es';
 $modversion['admin'] = 1;
 $modversion['securityschema'] = array('iw_agendas::' => '::');
 $modversion['dependencies'] = array(array('modname' => 'iw_main',
-											'minversion' => '2.0',
-											'maxversion' => '',
-											'status' => PNMODULE_DEPENDENCY_REQUIRED));
+                                          'minversion' => '2.0',
+                                          'maxversion' => '',
+                                          'status' => PNMODULE_DEPENDENCY_REQUIRED));
